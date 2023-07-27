@@ -1,0 +1,5 @@
+ALTER TABLE `department` ADD `leave_approver_1` BIGINT NULL AFTER `deleted_at`, ADD `leave_approver_2` BIGINT NULL AFTER `leave_approver_1`, ADD `overtime_approver_1` BIGINT NULL AFTER `leave_approver_2`, ADD `overtime_approver_2` BIGINT NULL AFTER `overtime_approver_1`;
+
+ALTER TABLE `employee` ADD `leave_approver_2` BIGINT NULL AFTER `overtime_approver_hr`;
+
+CREATE TABLE `leave_approval_approver` (`id` BIGINT AUTO_INCREMENT, `leave_approval_id` BIGINT UNSIGNED NOT NULL , `approver_id` BIGINT UNSIGNED NOT NULL , `leave_approval_status_id` BIGINT UNSIGNED NOT NULL DEFAULT '1' , `created_at` TIMESTAMP NULL DEFAULT NULL , `updated_at` TIMESTAMP NULL DEFAULT NULL, PRIMARY KEY(`id`));
